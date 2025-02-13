@@ -20,13 +20,23 @@ export const ValentinesPage = () => {
         "i'll keep asking >:C",
         "please? please? pleaseeee?",
         "MEANIEEEEEE 😭",
-        "i'm gonna haunt you tonight 😼"
+        "i'm gonna haunt you tonight 😼",
+        "say yes now!!! ..or imma tell yo momma 😈",
     ];
 
 
     const moveButton = () => {
-        const newX = Math.random() * (window.innerWidth / 2) - 100;
-        const newY = Math.random() * (window.innerHeight / 2) - 100;
+        // Calculate available screen space, accounting for button size
+        const buttonWidth = 100;  // approximate button width
+        const buttonHeight = 50;  // approximate button height
+
+        const maxX = window.innerWidth - buttonWidth;
+        const maxY = window.innerHeight - buttonHeight;
+
+        // Generate random position anywhere on screen
+        const newX = Math.random() * maxX - maxX / 2;
+        const newY = Math.random() * maxY - maxY / 2;
+
         setPosition({x: newX,y: newY});
         setCount(prev => prev + 1);
         setStage(prev => Math.min(prev + 1, messages.length - 1));
@@ -107,7 +117,7 @@ export const ValentinesPage = () => {
                             <button
                                 onClick={moveButton}
                                 onMouseEnter={moveButton}
-                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-300 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all`}
+                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all`}
                                 style={{
                                     transform: `translate(${position.x}px,${position.y}px)`,
                                     transition: 'all 0.2s ease'

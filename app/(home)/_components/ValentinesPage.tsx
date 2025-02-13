@@ -7,7 +7,6 @@ export const ValentinesPage = () => {
     const [count, setCount] = useState(0);
     const [stage, setStage] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
-    const [hearts, setHearts] = useState([]);
 
     const messages = [
         "will you be my Valentine?",
@@ -31,19 +30,7 @@ export const ValentinesPage = () => {
         setPosition({x: newX,y: newY});
         setCount(prev => prev + 1);
         setStage(prev => Math.min(prev + 1, messages.length - 1));
-        // addHeart({x: newX,y: newY});
     }
-
-    // const addHeart = ({x, y} : {x: number, y: number}) => {
-    //     const newHeart = {
-    //         id: Date.now(),
-    //         x: x,
-    //         y: y,
-    //         color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
-    //     };
-    //     setHearts(prev => [...prev, newHeart]);
-    //
-    // }
 
     const handleYes = () => {
         setStage(messages.length)

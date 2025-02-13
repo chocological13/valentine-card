@@ -7,6 +7,7 @@ export const ValentinesPage = () => {
     const [count, setCount] = useState(0);
     const [stage, setStage] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
+    const [hearts, setHearts] = useState([]);
 
     const messages = [
         "will you be my Valentine?",
@@ -21,7 +22,7 @@ export const ValentinesPage = () => {
         "please? please? pleaseeee?",
         "MEANIEEEEEE 😭",
         "i'm gonna haunt you tonight 😼",
-        "say yes now!!! ..or imma tell yo momma 😈",
+        "say yes now!!! ..or imma tell yo momma >:C",
     ];
 
 
@@ -68,6 +69,15 @@ export const ValentinesPage = () => {
         return sizes[Math.min(count, sizes.length - 1)];
     }
 
+    const confettiColors = [
+        "bg-pink-400",
+        "bg-pink-500",
+        "bg-pink-600",
+        "bg-purple-500",
+        "bg-blue-200",
+        "bg-yellow-200"
+    ]
+
     const successMessages = [
         "yayyyy!! I knew you'd say yes~ 🩷",
         "you made me the happiest person EVERRR~",
@@ -79,15 +89,15 @@ export const ValentinesPage = () => {
             className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100 flex flex-col items-center justify-center p-4">
             {showConfetti && (
                 <div className="fixed inset-0 z-50">
-                    {[...Array(50)].map((_, i) => (
+                    {[...Array(75)].map((_, i) => (
                         <div
                             key={i}
-                            className="absolute animate-confetti"
+                            className={`absolute w-3 h-3 rounded-full ${confettiColors[Math.floor(Math.random() * confettiColors.length)]} animate-confetti`}
                             style={{
-                                left: `${Math.random() * 100}%`,
-                                top: `-5%`,
-                                animationDelay: `${Math.random() * 3}s`,
-                                backgroundColor: ['#ff69b4', '#ff1493', '#ff69b4', '#dda0dd'][Math.floor(Math.random() * 4)]
+                                left: `${Math.random() * 100}vw`,
+                                top: '-20px',
+                                animationDelay: `${Math.random() * 4}s`,
+                                animationDuration: `${2 + Math.random() * 2}s`
                             }}
                         />
                     ))}

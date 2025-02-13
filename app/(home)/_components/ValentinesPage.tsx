@@ -2,16 +2,23 @@
 import React, {useState} from 'react';
 import {Check, HeartCrack, Heart} from "lucide-react";
 
+interface HeartProps {
+    id: number,
+    x: number,
+    y: number,
+    color: string
+}
+
 export const ValentinesPage = () => {
     const [position, setPosition] = useState({x:0,y:0});
     const [count, setCount] = useState(0);
     const [stage, setStage] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
-    const [hearts, setHearts] = useState([]);
+    const [hearts, setHearts] = useState<HeartProps[]>([]);
 
     const messages = [
-        "will you be my Valentine?",
-        "are you really sure you wanna say no? 🥺",
+        "will you be my Valentine? UwU",
+        "you'd say no to me? 🥺",
         "really really sure? 😢",
         "i'm gonna cry.. 😭",
         "pretty pleaseeeee? 😿",
@@ -24,6 +31,8 @@ export const ValentinesPage = () => {
         "i'm gonna haunt you tonight 😼",
         "say yes now!!! ..or imma tell yo momma >:C",
     ];
+
+
 
 
     const moveButton = () => {
@@ -41,6 +50,29 @@ export const ValentinesPage = () => {
         setPosition({x: newX,y: newY});
         setCount(prev => prev + 1);
         setStage(prev => Math.min(prev + 1, messages.length - 1));
+        addHeart({x: newX, y: newY});
+    }
+
+    const addHeart = ({x, y}: {x: number, y: number}) => {
+        const newHeart = {
+            id: Date.now(),
+            x: x,
+            y: y,
+            color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
+        }
+        setHearts(prev => [...prev, newHeart]);
+        setTimeout(() => {
+            setHearts(prev => prev.filter(heart => heart.id !== newHeart.id));
+        }, 2000)
+    }
+
+    const handleBackgroundClick = (e : React.MouseEvent<HTMLDivElement>) => {
+        if (e.target == e.currentTarget) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            addHeart({x: x, y: y});
+        }
     }
 
     const handleYes = () => {
@@ -86,10 +118,26 @@ export const ValentinesPage = () => {
 
     return (
         <div
-            className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100 flex flex-col items-center justify-center p-4">
+            className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100 flex flex-col items-center justify-center p-4 relative overflow-hidden"
+        onClick={handleBackgroundClick}>
+            {/* Floating hearts */}
+            {hearts.map(heart => (
+                <div
+                    key={heart.id}
+                    className="absolute pointer-events-none animate-float"
+                    style={{
+                        left: `${heart.x}px`,
+                        top: `${heart.y}px`,
+                        color: heart.color
+                    }}
+                >
+                    <Heart className="w-6 h-6" />
+                </div>
+            ))}
+
             {showConfetti && (
                 <div className="fixed inset-0 z-50">
-                    {[...Array(75)].map((_, i) => (
+                    {[...Array(50)].map((_, i) => (
                         <div
                             key={i}
                             className={`absolute w-3 h-3 rounded-full ${confettiColors[Math.floor(Math.random() * confettiColors.length)]} animate-confetti`}
@@ -115,7 +163,7 @@ export const ValentinesPage = () => {
                     </div>
                 ) : (
                     <div className="space-y-6">
-                        <h1 className="text-pink-600 text-3xl font-bold mb-8">
+                        <h1 className="text-pink-600 text-4xl font-bold mb-8">
                             {messages[stage]}
                         </h1>
                         <div className="flex flex-col items-center gap-4">

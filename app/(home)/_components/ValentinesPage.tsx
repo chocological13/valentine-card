@@ -205,7 +205,7 @@ export const ValentinesPage = () => {
                             <button
                                 onClick={moveButton}
                                 onMouseEnter={moveButton}
-                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all`}
+                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all absolute`}
                                 style={{
                                     transform: `translate(${position.x}px,${position.y}px)`,
                                     transition: 'all 0.2s ease'

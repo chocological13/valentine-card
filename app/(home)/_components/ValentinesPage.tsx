@@ -40,8 +40,8 @@ export const ValentinesPage = () => {
         const buttonWidth = 100;  // approximate button width
         const buttonHeight = 50;  // approximate button height
 
-        const maxX = window.innerWidth - buttonWidth;
-        const maxY = window.innerHeight - buttonHeight;
+        const maxX = window.innerWidth - 200 - buttonWidth;
+        const maxY = window.innerHeight - 200 - buttonHeight;
 
         // Generate random position anywhere on screen
         const newX = Math.random() * maxX - maxX / 2;
@@ -113,7 +113,8 @@ export const ValentinesPage = () => {
     const successMessages = [
         "yayyyy!! I knew you'd say yes~ 🩷",
         "you made me the happiest person EVERRR~",
-        "so.. where are you taking me to for Valentine's Day? :3"
+        "now let's commit some unholy stuffs together.. >:3",
+        "i made chocolate covered strawberries for you~ 🍓🍫"
     ]
 
     return (
@@ -158,7 +159,8 @@ export const ValentinesPage = () => {
                         <div className="text-4xl">🎊✨💖🎊</div>
                         <h1 className="text-3xl font-bold text-pink-400">{successMessages[0]}</h1>
                         <h1 className="text-2xl font-bold text-gray-600">{successMessages[1]}</h1>
-                        <h1 className="text-1xl font-bold text-gray-500">{successMessages[2]}</h1>
+                        <h1 className="text-xs font-bold text-gray-500 line-through">{successMessages[2]}</h1>
+                        <h1 className="text-xl font-bold text-pink-300">{successMessages[3]}</h1>
                         <Heart className="w-20 h-20 text-pink-400 mx-auto animate-bounce"/>
                     </div>
                 ) : (

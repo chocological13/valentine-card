@@ -39,7 +39,7 @@ export const ValentinesPage = () => {
         "so you're saying there's *zero* hope? 💔",
         "if i made the saddest face ever, you still wouldn't say yes? 😿",
         "not even in an alternate universe? 🪐",
-        "so even if i was the last person on rarth... still no? 😭",
+        "so even if i was the last person on earth... still no? 😭",
         "you really hate seeing me happy, huh? 🥺",
         "so i should just accept my fate and move on? 😔",
         "you won't even pretend to consider it? 😢",
@@ -205,7 +205,7 @@ export const ValentinesPage = () => {
                             <button
                                 onClick={moveButton}
                                 onMouseEnter={moveButton}
-                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all absolute`}
+                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all`}
                                 style={{
                                     transform: `translate(${position.x}px,${position.y}px)`,
                                     transition: 'all 0.2s ease'

@@ -16,9 +16,9 @@ const indie = Indie_Flower({
 });
 
 export const metadata: Metadata = {
-  title: "Will you be my valentine? 🥺",
-  description: "Say yes!!",
-};
+    title: "will you be my valentine? 🥺",
+    description: "you can try to say no 🤷🏻‍♀️"
+}
 
 export default function RootLayout({
   children,

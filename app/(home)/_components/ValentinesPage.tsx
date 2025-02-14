@@ -19,7 +19,7 @@ export const ValentinesPage = () => {
 
     const messages = [
         "will you be my Valentine? UwU",
-        "you're really, really gonna reject me? 🥺",
+        "you wouldn't say yes to me? 🥺",
         "i'm gonna cry.. 😭",
         "pretty pleaseeeee? 😿",
         "there's no chance at all? D:",

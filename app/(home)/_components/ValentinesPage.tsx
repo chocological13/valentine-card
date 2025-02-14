@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Check, HeartCrack, Heart} from "lucide-react";
 
 interface HeartProps {
@@ -15,6 +15,7 @@ export const ValentinesPage = () => {
     const [stage, setStage] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
     const [hearts, setHearts] = useState<HeartProps[]>([]);
+    const [confettiCount, setConfettiCount] = useState(50);
 
     const messages = [
         "will you be my Valentine? UwU",
@@ -117,6 +118,12 @@ export const ValentinesPage = () => {
         "i made chocolate covered strawberries for you~ 🍓🍫"
     ]
 
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setConfettiCount(window.innerWidth < 640 ? 20 : 50);
+        }
+    }, []);
+
     return (
         <div
             className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100 flex flex-col items-center justify-center p-4 relative overflow-hidden"
@@ -138,7 +145,7 @@ export const ValentinesPage = () => {
 
             {showConfetti && (
                 <div className="fixed inset-0 z-50">
-                    {[...Array(50)].map((_, i) => (
+                    {[...Array(confettiCount)].map((_, i) => (
                         <div
                             key={i}
                             className={`absolute w-3 h-3 rounded-full ${confettiColors[Math.floor(Math.random() * confettiColors.length)]} animate-confetti`}

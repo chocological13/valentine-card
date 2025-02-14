@@ -19,18 +19,39 @@ export const ValentinesPage = () => {
 
     const messages = [
         "will you be my Valentine? UwU",
-        "you'd say no to me? 🥺",
-        "really really sure? 😢",
+        "you're really, really gonna reject me? 🥺",
         "i'm gonna cry.. 😭",
         "pretty pleaseeeee? 😿",
-        "don't go breaking my heartttt ;-;",
+        "there's no chance at all? D:",
+        "you don't care if i cry all night? ;-;",
         "WAAAAAAAAAAA ;-;",
+        "even if i ask 100 times, it's still a no?",
         "i won't give upppppp >.<",
         "i'll keep asking >:C",
         "please? please? pleaseeee?",
+        "you're not feeling even a teensy weensy bad? 😢",
         "MEANIEEEEEE 😭",
-        "i'm gonna haunt you tonight 😼",
+        "you're gonna let me suffer in heartbreak forever? 😖",
+        "what if i die of heartbreak and haunt you tonight? 😼",
         "say yes now!!! ..or imma tell yo momma >:C",
+        "not even bribery would work? 🥺",
+        "you're not secretly in love with me, right? 👀",
+        "so you're saying there's *zero* hope? 💔",
+        "if i made the saddest face ever, you still wouldn't say yes? 😿",
+        "not even in an alternate universe? 🪐",
+        "so even if i was the last person on rarth... still no? 😭",
+        "you really hate seeing me happy, huh? 🥺",
+        "so i should just accept my fate and move on? 😔",
+        "you won't even pretend to consider it? 😢",
+        "even if i wrote you a love song, it'd still be no? 🎶😭",
+        "so if i just disappeared forever, you wouldn't miss me? 👀",
+        "what if i said I'd share my snacks? 🍪",
+        "not even if i turned into a cute cat? 🐱",
+        "you're really that heartless? 😭",
+        "so even if i was a famous celebrity, still no? 😔",
+        "is this the saddest rejection in history? 😭",
+        "you're enjoying this, aren't you? >:C",
+        "okay, then, chase your button forever i guess hmph!!"
     ];
 
 
@@ -184,7 +205,7 @@ export const ValentinesPage = () => {
                             <button
                                 onClick={moveButton}
                                 onMouseEnter={moveButton}
-                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all`}
+                                className={`${getNoButtonSize()} px-8 py-4 bg-gray-500 text-white rounded-full hover:bg-gray-600 shadow-lg transition-all absolute`}
                                 style={{
                                     transform: `translate(${position.x}px,${position.y}px)`,
                                     transition: 'all 0.2s ease'
